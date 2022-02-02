@@ -19,6 +19,10 @@
 	export let user;
 </script>
 
+<svelte:head>
+	<title>Admin</title>
+</svelte:head>
+
 <h1 class="text-2xl font-semibold text-center">
 	Hi! You are registered with username {user.username}.
 </h1>

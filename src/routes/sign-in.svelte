@@ -1,3 +1,7 @@
+<script context="module" lang="ts">
+	export const prerender = true;
+</script>
+
 <script>
 	import SignInForm from '$lib/components/SignInForm.svelte';
 
@@ -17,9 +21,13 @@
 			return;
 		}
 
-		window.location = '/protected';
+		window.location.href = '/admin';
 	}
 </script>
+
+<svelte:head>
+	<title>Sign In</title>
+</svelte:head>
 
 <h1 class="text-2xl font-semibold text-center">Sign In</h1>
 {#if error}

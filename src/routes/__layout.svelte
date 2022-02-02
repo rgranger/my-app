@@ -1,9 +1,21 @@
+<script context="module">
+	export async function load({ session }) {
+		return {
+			props: {
+				user: session.user
+			}
+		};
+	}
+</script>
+
 <script lang="ts">
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
+
+	export let user;
 </script>
 
-<Header>
+<Header isLoggedIn={!!user}>
 	<main>
 		<slot />
 	</main>

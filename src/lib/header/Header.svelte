@@ -1,14 +1,21 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	import loginIcon from './login.svg';
+	import logoutIcon from './logout.svg';
+
+	export let isLoggedIn;
+
+	const handleLogout = async () => {
+		await fetch('/api/sign-out', {
+			method: 'GET'
+		});
+
+		window.location.href = '/sign-in';
+	};
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
+	<div class="corner" />
 
 	<nav>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -16,12 +23,11 @@
 		</svg>
 		<ul>
 			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.url.pathname === '/about'}>
-				<a sveltekit:prefetch href="/about">About</a>
-			</li>
-			<li class:active={$page.url.pathname === '/todos'}>
-				<a sveltekit:prefetch href="/todos">Todos</a>
-			</li>
+			{#if isLoggedIn}
+				<li class:active={$page.url.pathname === '/admin'}>
+					<a sveltekit:prefetch href="/admin">Admin</a>
+				</li>
+			{/if}
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
@@ -29,7 +35,11 @@
 	</nav>
 
 	<div class="corner">
-		<!-- TODO put something else here? github link? -->
+		{#if isLoggedIn}
+			<a href="#sign-out" on:click={handleLogout}><img src={logoutIcon} alt="Log Out" /></a>
+		{:else}
+			<a sveltekit:prefetch href="/sign-in"><img src={loginIcon} alt="Log In" /></a>
+		{/if}
 	</div>
 </header>
 
