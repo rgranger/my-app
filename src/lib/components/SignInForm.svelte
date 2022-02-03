@@ -20,6 +20,7 @@
 		type="text"
 		placeholder="Username"
 		name="username"
+		id="username"
 		bind:value={username}
 	/>
 	<Input
@@ -27,7 +28,10 @@
 		type="password"
 		placeholder="Password"
 		name="password"
+		id="password"
 		bind:value={password}
 	/>
-	<Button type="submit">Login</Button>
+	<div class="text-center">
+		<Button type="submit">Login</Button>
+	</div>
 </form>

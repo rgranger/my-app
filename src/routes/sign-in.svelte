@@ -29,8 +29,21 @@
 	<title>Sign In</title>
 </svelte:head>
 
-<h1 class="text-2xl font-semibold text-center">Sign In</h1>
-{#if error}
-	<p class="mt-3 text-red-500 text-center font-semibold">{error}</p>
-{/if}
-<SignInForm class="max-w-xl mx-auto mt-8" on:submit={handleSubmit} />
+<section>
+	<h1 class="text-2xl font-semibold text-center">Sign In</h1>
+
+	<SignInForm class="max-w-xl mx-auto mt-8" on:submit={handleSubmit} />
+	<p class:invisible={!error} class="mt-3 text-red-500 text-center font-semibold">
+		{error}
+	</p>
+</section>
+
+<style>
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 1;
+	}
+</style>
