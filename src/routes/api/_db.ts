@@ -5,6 +5,21 @@ export const user = {
      password: 'toto',
 }
 
+export const series = [
+    {
+        name: 'The Walking Dead',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching', 
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    }
+]
+
 let sessions = [];
 
 export const createSession = (username) => {

@@ -16,6 +16,16 @@
 </script>
 
 <script>
+	import { onMount } from 'svelte';
+	import { series } from '../store';
+
+	onMount(async () => {
+		fetch('/api/series')
+			.then((res) => res.json())
+			.then((data) => series.set(data))
+			.catch((err) => console.error(err));
+	});
+
 	export let user;
 </script>
 
@@ -23,6 +33,11 @@
 	<title>Admin</title>
 </svelte:head>
 
-<h1 class="text-2xl font-semibold text-center">
-	Hi! You are registered with username {user.username}.
-</h1>
+<section class="flex">
+	{#each $series as serie}
+		<div>
+			<img src={serie.img} alt={serie.name} />
+			{serie.name}: {serie.last_episode_viewed}
+		</div>
+	{/each}
+</section>
