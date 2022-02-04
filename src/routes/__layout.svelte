@@ -30,5 +30,6 @@
 		max-width: 1024px;
 		margin: 0 auto;
 		box-sizing: border-box;
+		overflow-y: auto;
 	}
 </style>
