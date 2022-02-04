@@ -25,19 +25,17 @@
 			.then((data) => series.set(data))
 			.catch((err) => console.error(err));
 	});
-
-	export let user;
 </script>
 
 <svelte:head>
 	<title>Admin</title>
 </svelte:head>
 
-<section class="flex">
+<section class="flex flex-wrap">
 	{#each $series as serie}
-		<div>
-			<img src={serie.img} alt={serie.name} />
-			{serie.name}: {serie.last_episode_viewed}
+		<div class="p-2 text-center">
+			<img class="w-56 aspect-video" src={serie.img} alt={serie.name} />
+			{serie.name} - {serie.last_episode_viewed}
 		</div>
 	{/each}
 </section>
