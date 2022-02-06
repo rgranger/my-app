@@ -7,54 +7,210 @@ export const user = {
 
 export const series = [
     {
+        id: uuidv4(),
         name: 'The Walking Dead',
         last_episode_viewed: 'S01 E01',
         status: 'watching', 
         img: 'https://i.imgur.com/Z5zXzfJ.jpg',
     },
     {
+        id: uuidv4(),
         name: 'The Big Bang Theory',
         last_episode_viewed: 'S01 E01',
         status: 'watching',
         img: 'https://i.imgur.com/Z5zXzfJ.jpg',
     },
     {
+        id: uuidv4(),
         name: 'The Big Bang Theory',
         last_episode_viewed: 'S01 E01',
         status: 'watching',
         img: 'https://i.imgur.com/Z5zXzfJ.jpg',
     },
     {
+        id: uuidv4(),
         name: 'The Big Bang Theory',
         last_episode_viewed: 'S01 E01',
         status: 'watching',
         img: 'https://i.imgur.com/Z5zXzfJ.jpg',
     },
     {
+        id: uuidv4(),
         name: 'The Big Bang Theory',
         last_episode_viewed: 'S01 E01',
         status: 'watching',
         img: 'https://i.imgur.com/Z5zXzfJ.jpg',
     },
     {
+        id: uuidv4(),
         name: 'The Big Bang Theory',
         last_episode_viewed: 'S01 E01',
         status: 'watching',
         img: 'https://i.imgur.com/Z5zXzfJ.jpg',
     },
     {
+        id: uuidv4(),
         name: 'The Big Bang Theory',
         last_episode_viewed: 'S01 E01',
         status: 'watching',
         img: 'https://i.imgur.com/Z5zXzfJ.jpg',
     },
     {
+        id: uuidv4(),
         name: 'The Big Bang Theory',
         last_episode_viewed: 'S01 E01',
         status: 'watching',
         img: 'https://i.imgur.com/Z5zXzfJ.jpg',
     },
     {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
+        name: 'The Big Bang Theory',
+        last_episode_viewed: 'S01 E01',
+        status: 'watching',
+        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
+    },
+    {
+        id: uuidv4(),
         name: 'The Big Bang Theory',
         last_episode_viewed: 'S01 E01',
         status: 'watching',
@@ -85,3 +241,13 @@ export const removeSession = (id) => {
     sessions = sessions.filter((session) => session.id !== id);
     return Promise.resolve(session);
 };
+
+export const updateSerie = ({ id, name, last_episode_viewed, status }) => {
+    let serie = series.find((serie) => serie.id === id);
+
+    if (serie) {
+        serie.name = name;
+        serie.last_episode_viewed = last_episode_viewed;
+        serie.status = status;
+    }
+}

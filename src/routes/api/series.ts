@@ -1,17 +1,11 @@
-import { series } from './_db';
-import { parse } from 'cookie';
+import { series, setSeries } from './_db';
+import { makeAuthAPI } from './_auth';
 
-export async function get({ headers: { cookie } }) {
-    const cookies = parse(cookie || '');
-
-    if (!cookies.session_id) {
-        return {
-            status: 401,
-        }
-    }
-
-    return {
+export const get = makeAuthAPI((ctx) => ({
      status: 200,
      body: series
-    };
-}
+}))
+
+export const post = makeAuthAPI(({ body }) => {
+    console.log('body', body)
+})

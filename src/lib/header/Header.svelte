@@ -24,8 +24,8 @@
 		<ul>
 			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
 			{#if isLoggedIn}
-				<li class:active={$page.url.pathname === '/admin'}>
-					<a sveltekit:prefetch href="/admin">Admin</a>
+				<li class:active={$page.url.pathname === '/series'}>
+					<a sveltekit:prefetch href="/series">Series</a>
 				</li>
 			{/if}
 		</ul>
