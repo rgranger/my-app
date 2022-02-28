@@ -20,6 +20,7 @@
 	import { onMount } from 'svelte';
 	import { series } from '../../store';
 	import { outsideClick } from '$lib/actions/outside-click';
+	import Button from '$lib/components/Button.svelte';
 
 	onMount(async () => {
 		fetch('/api/series')
@@ -29,6 +30,8 @@
 	});
 
 	let selectedSerie = null;
+
+	function handleUpdateClick() {}
 </script>
 
 <svelte:head>
@@ -54,17 +57,21 @@
 			</div>
 		{/each}
 	</section>
-	<section class="flex-1">
+	<section class="flex flex-1 flex-col p-4 items-center -mt-2">
 		{#if selectedSerie}
-			<img class="aspect-video w-1/3" src={selectedSerie.img} alt={selectedSerie.name} />
-			<Input id="name" name="name" label="Name" type="text" value={'label'} />
+			<Input id="name" class="pt-2" name="name" label="Name" type="text" value={'label'} />
 			<Input
+				class="pt-2"
 				id="last_episode_viewed"
 				name="last_episode_viewed"
 				label="Last Episode Viewed"
 				type="text"
 				value={'last_episode_viewed'}
 			/>
+			<img class="aspect-video w-1/3 pt-2" src={selectedSerie.img} alt={selectedSerie.name} />
+			<div class="pt-2">
+				<Button on:click={handleUpdateClick}>Update</Button>
+			</div>
 		{:else}
 			<h1>Add new serie</h1>
 		{/if}
