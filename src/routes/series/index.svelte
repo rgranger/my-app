@@ -35,12 +35,12 @@
 	<title>Series</title>
 </svelte:head>
 
-<div class="min-h-0 flex-col flex-1">
-	<section
-		class="flex flex-1 flex-wrap overflow-auto h-1/2 p-2"
-		use:outsideClick
-		on:outside-click={() => (selectedSerie = null)}
-	>
+<div
+	class="min-h-0 flex flex-col flex-1"
+	use:outsideClick
+	on:outside-click={() => (selectedSerie = null)}
+>
+	<section class="flex flex-1 flex-wrap overflow-auto p-4">
 		{#each $series as serie}
 			<div
 				on:click={() => (selectedSerie = serie)}
