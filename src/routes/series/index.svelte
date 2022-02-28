@@ -19,6 +19,7 @@
 	import Input from '$lib/components/Input.svelte';
 	import { onMount } from 'svelte';
 	import { series } from '../../store';
+	import { outsideClick } from '$lib/actions/outside-click';
 
 	onMount(async () => {
 		fetch('/api/series')
@@ -35,7 +36,11 @@
 </svelte:head>
 
 <div class="min-h-0 flex-col flex-1">
-	<section class="flex flex-1 flex-wrap overflow-auto h-1/2 p-2">
+	<section
+		class="flex flex-1 flex-wrap overflow-auto h-1/2 p-2"
+		use:outsideClick
+		on:outside-click={() => (selectedSerie = null)}
+	>
 		{#each $series as serie}
 			<div
 				on:click={() => (selectedSerie = serie)}
