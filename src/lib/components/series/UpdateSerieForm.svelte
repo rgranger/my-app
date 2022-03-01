@@ -1,0 +1,23 @@
+<script>
+	import Input from '$lib/components/Input.svelte';
+	import Button from '$lib/components/Button.svelte';
+
+	export let name;
+	export let lastEpisodeViewed;
+	export let img;
+	export let handleUpdateClick;
+</script>
+
+<Input id="name" class="pt-2" name="name" label="Name" type="text" bind:value={name} />
+<Input
+	class="pt-2"
+	id="last_episode_viewed"
+	name="last_episode_viewed"
+	label="Last Episode Viewed"
+	type="text"
+	bind:value={lastEpisodeViewed}
+/>
+<img class="aspect-video w-1/3 pt-2" src={img} alt={name} />
+<div class="pt-2">
+	<Button on:click={handleUpdateClick}>Update</Button>
+</div>
