@@ -20,6 +20,7 @@
 	import { series } from '../../store';
 	import { outsideClick } from '$lib/actions/outside-click';
 	import UpdateSerieForm from '$lib/components/series/UpdateSerieForm.svelte';
+	import CreateSerieForm from '$lib/components/series/CreateSerieForm.svelte';
 
 	onMount(async () => {
 		fetch('/api/series')
@@ -52,6 +53,25 @@
 
 					return series;
 				});
+			})
+			.catch((err) => console.error(err));
+	}
+
+	function handleCreateSerie({ detail: { name, lastEpisodeViewed, img } }) {
+		fetch('/api/series', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				name,
+				last_episode_viewed: lastEpisodeViewed,
+				img
+			})
+		})
+			.then((res) => res.json())
+			.then((createdSerie) => {
+				series.update((series) => [...series, createdSerie]);
 			})
 			.catch((err) => console.error(err));
 	}
@@ -89,7 +109,7 @@
 				on:update={handleUpdateSerie}
 			/>
 		{:else}
-			<h1>Add new serie</h1>
+			<CreateSerieForm on:create={handleCreateSerie} />
 		{/if}
 	</section>
 </div>
