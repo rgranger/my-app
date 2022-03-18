@@ -20,6 +20,7 @@ export const put = makeAuthAPI(({ body, params }) => {
         name: body.name,
         status: body.status,
         last_episode_viewed: body.last_episode_viewed,
+        img: body.img,
     }).then(serie => ({
         status: 201,
         body: serie,

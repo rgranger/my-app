@@ -119,7 +119,7 @@ export const getSerie = (id) => {
         : Promise.reject(new Error('Invalid serie id'));
 }
 
-export const updateSerie = ({ id, name, last_episode_viewed, status }) => {
+export const updateSerie = ({ id, name, last_episode_viewed, status, img }) => {
     let serie = series.find((serie) => serie.id === id);
 
     if (!serie) return Promise.reject(new Error('Serie not found'));
@@ -127,6 +127,7 @@ export const updateSerie = ({ id, name, last_episode_viewed, status }) => {
     serie.name = name;
     serie.last_episode_viewed = last_episode_viewed;
     serie.status = status;
+    serie.img = img;
 
     return Promise.resolve(serie)
 }

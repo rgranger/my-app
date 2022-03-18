@@ -20,6 +20,8 @@
 	type="text"
 	bind:value={lastEpisodeViewed}
 />
+<Input id="img" class="pt-2" name="img" label="Image URL" type="text" bind:value={img} />
+
 <div class="pt-2">
-	<Button on:click={() => dispatch('update', { name, lastEpisodeViewed })}>Update</Button>
+	<Button on:click={() => dispatch('update', { name, lastEpisodeViewed, img })}>Update</Button>
 </div>
