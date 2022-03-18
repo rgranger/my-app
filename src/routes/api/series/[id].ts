@@ -1,4 +1,4 @@
-import { getSerie, updateSerie } from '../_db';
+import { getSerie, removeSerie, updateSerie } from '../_db';
 import { makeAuthAPI } from '../_auth';
 
 export const get = makeAuthAPI(({ body }) => getSerie(body.id)
@@ -28,4 +28,16 @@ export const put = makeAuthAPI(({ body, params }) => {
         status: 500,
         body: e.message
     }))
+})
+
+export const del = makeAuthAPI(({ params }) => {
+    return removeSerie(params.id)
+        .then(series => ({
+            status: 200,
+            body: series,
+        }))
+        .catch((e) => ({
+            status: 400,
+            body: e.message
+        }))
 })

@@ -145,3 +145,13 @@ export const createSerie = ({ name, last_episode_viewed, status, img }) => {
 
     return Promise.resolve(newSerie)
 }
+
+export const removeSerie = (id) => {
+    const index = series.findIndex((serie) => serie.id === id);
+
+    if (index === -1) return Promise.reject(new Error('Serie not found'));
+
+    series.splice(index, 1);
+
+    return Promise.resolve(series);
+}

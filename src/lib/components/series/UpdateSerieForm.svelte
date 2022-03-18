@@ -24,4 +24,5 @@
 
 <div class="pt-2">
 	<Button on:click={() => dispatch('update', { name, lastEpisodeViewed, img })}>Update</Button>
+	<Button on:click={() => dispatch('delete')}>Delete</Button>
 </div>

@@ -76,6 +76,17 @@
 			})
 			.catch((err) => console.error(err));
 	}
+
+	function handleDeleteSerie() {
+		fetch(`/api/series/${selectedSerie.id}`, {
+			method: 'DELETE'
+		})
+			.then((res) => res.json())
+			.then((newSeries) => {
+				series.set(newSeries);
+			})
+			.catch((err) => console.error(err));
+	}
 </script>
 
 <svelte:head>
@@ -108,6 +119,7 @@
 				lastEpisodeViewed={selectedSerie.last_episode_viewed}
 				img={selectedSerie.img}
 				on:update={handleUpdateSerie}
+				on:delete={handleDeleteSerie}
 			/>
 		{:else}
 			<CreateSerieForm on:create={handleCreateSerie} />
