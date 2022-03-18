@@ -30,9 +30,30 @@
 
 	let selectedSerie = null;
 
-	function handleUpdateClick() {
-		console.log('name', selectedSerie.name);
-		console.log('last', selectedSerie.last_episode_viewed);
+	function handleUpdateSerie({ detail: { name, lastEpisodeViewed } }) {
+		fetch(`/api/series/${selectedSerie.id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				name,
+				last_episode_viewed: lastEpisodeViewed
+			})
+		})
+			.then((res) => res.json())
+			.then((updatedSerie) => {
+				series.update((series) => {
+					const index = series.findIndex((serie) => serie.id === selectedSerie.id);
+
+					if (index !== -1) {
+						series[index] = updatedSerie;
+					}
+
+					return series;
+				});
+			})
+			.catch((err) => console.error(err));
 	}
 </script>
 
@@ -65,7 +86,7 @@
 				name={selectedSerie.name}
 				lastEpisodeViewed={selectedSerie.last_episode_viewed}
 				img={selectedSerie.img}
-				{handleUpdateClick}
+				on:update={handleUpdateSerie}
 			/>
 		{:else}
 			<h1>Add new serie</h1>

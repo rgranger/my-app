@@ -1,13 +1,16 @@
 <script>
 	import Input from '$lib/components/Input.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	export let name;
 	export let lastEpisodeViewed;
 	export let img;
-	export let handleUpdateClick;
+
+	const dispatch = createEventDispatcher();
 </script>
 
+<img class="aspect-video w-1/3 pt-2" src={img} alt={name} />
 <Input id="name" class="pt-2" name="name" label="Name" type="text" bind:value={name} />
 <Input
 	class="pt-2"
@@ -17,7 +20,6 @@
 	type="text"
 	bind:value={lastEpisodeViewed}
 />
-<img class="aspect-video w-1/3 pt-2" src={img} alt={name} />
 <div class="pt-2">
-	<Button on:click={handleUpdateClick}>Update</Button>
+	<Button on:click={() => dispatch('update', { name, lastEpisodeViewed })}>Update</Button>
 </div>
