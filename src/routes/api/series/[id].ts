@@ -1,4 +1,4 @@
-import { getSerie, removeSerie, updateSerie } from '../_db';
+import { getSerie, removeSerie, updateSerie } from './_db';
 import { makeAuthAPI } from '../_auth';
 
 export const get = makeAuthAPI(({ body }) => getSerie(body.id)

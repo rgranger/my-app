@@ -1,4 +1,4 @@
-import { getSeries, createSerie } from '../_db';
+import { getSeries, createSerie } from './_db';
 import { makeAuthAPI } from '../_auth';
 
 export const get = makeAuthAPI((ctx) => getSeries()
