@@ -1,7 +1,7 @@
 import { getSerie, removeSerie, updateSerie } from './_db';
 import { makeAuthAPI } from '../_auth';
 
-export const get = makeAuthAPI(({ body }) => getSerie(body.id)
+export const get = makeAuthAPI(({ params }) => getSerie(params.id)
     .then(serie => ({
         status: 200,
         body: serie,
@@ -12,15 +12,16 @@ export const get = makeAuthAPI(({ body }) => getSerie(body.id)
     }))
 )
 
-export const put = makeAuthAPI(({ body, params }) => {
+export const put = makeAuthAPI(async ({ request, params }) => {
     // TODO validate body
+    const { name, status, img, last_episode_viewed } = await request.json()
 
     return updateSerie({
         id: params.id,
-        name: body.name,
-        status: body.status,
-        last_episode_viewed: body.last_episode_viewed,
-        img: body.img,
+        name,
+        status,
+        last_episode_viewed,
+        img,
     }).then(serie => ({
         status: 201,
         body: serie,

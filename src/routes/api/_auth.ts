@@ -2,7 +2,7 @@ import { parse } from 'cookie';
 
 export function makeAuthAPI(apiCallback: Function): Function {
     return async function authAPI(ctx) {
-        const cookies = parse(ctx.headers.cookie || '');
+        const cookies = parse(ctx.request.headers.get('cookie') || '');
 
         if (!cookies.session_id) {
             return {

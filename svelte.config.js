@@ -10,9 +10,10 @@ const config = {
 	kit: {
 		adapter: adapter(),
 
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte'
-	}
+		methodOverride: {
+			allowed: ['PATCH', 'DELETE']
+		}
+	},
 };
 
 export default config;

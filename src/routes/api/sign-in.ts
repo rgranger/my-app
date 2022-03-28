@@ -2,7 +2,9 @@ import { createSession, user } from './_db';
 import { serialize } from 'cookie';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function post({ body: { username, password }}) {
+export async function post({ request }) {
+    const { username, password } = await request.json()
+
     if (username !== user.username || password !== user.password) {
         return {
             status: 401,

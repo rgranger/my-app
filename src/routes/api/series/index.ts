@@ -12,14 +12,15 @@ export const get = makeAuthAPI((ctx) => getSeries()
     }))
 )
 
-export const post = makeAuthAPI(({ body }) => {
+export const post = makeAuthAPI(async ({ request }) => {
     // TODO validate body
+    const { name, status, img, last_episode_viewed } = await request.json()
 
     return createSerie({
-        name: body.name,
-        status: body.status,
-        img: body.img,
-        last_episode_viewed: body.last_episode_viewed,
+        name,
+        status,
+        img,
+        last_episode_viewed,
     }).then(serie => ({
         status: 201,
         body: serie,
