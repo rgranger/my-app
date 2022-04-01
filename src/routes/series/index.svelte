@@ -31,7 +31,7 @@
 
 	let selectedSerie = null;
 
-	function handleUpdateSerie({ detail: { name, lastEpisodeViewed, img } }) {
+	function handleUpdateSerie({ detail: { name, lastEpisodeViewed, img, finished } }) {
 		fetch(`/api/series/${selectedSerie.id}`, {
 			method: 'PUT',
 			headers: {
@@ -40,7 +40,8 @@
 			body: JSON.stringify({
 				name,
 				last_episode_viewed: lastEpisodeViewed,
-				img
+				img,
+				finished
 			})
 		})
 			.then((res) => res.json())
@@ -118,6 +119,7 @@
 				name={selectedSerie.name}
 				lastEpisodeViewed={selectedSerie.last_episode_viewed}
 				img={selectedSerie.img}
+				finished={selectedSerie.finished}
 				on:update={handleUpdateSerie}
 				on:delete={handleDeleteSerie}
 			/>

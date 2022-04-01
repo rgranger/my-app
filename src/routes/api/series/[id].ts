@@ -14,12 +14,12 @@ export const get = makeAuthAPI(({ params }) => getSerie(params.id)
 
 export const put = makeAuthAPI(async ({ request, params }) => {
     // TODO validate body
-    const { name, status, img, last_episode_viewed } = await request.json()
+    const { name, finished, img, last_episode_viewed } = await request.json()
 
     return updateSerie({
         id: params.id,
         name,
-        status,
+        finished,
         last_episode_viewed,
         img,
     }).then(serie => ({

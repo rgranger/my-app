@@ -1,128 +1,68 @@
-import { v4 as uuidv4 } from '@lukeed/uuid';
-
-export enum SerieStatus {
-    Watching,
-    Finished,
-}
-
-const series = [
-    {
-        id: uuidv4(),
-        name: 'The Walking Dead',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-    {
-        id: uuidv4(),
-        name: 'The Big Bang Theory',
-        last_episode_viewed: 'S01 E01',
-        status: SerieStatus.Watching, 
-        img: 'https://i.imgur.com/Z5zXzfJ.jpg',
-    },
-]
+import { db } from '$lib/db';
 
 export const getSeries = () => {
-    return Promise.resolve(series);
+    try {
+        const stmt = db.prepare(`SELECT * FROM series;`)
+
+        return Promise.resolve(stmt.all())
+    } catch (e) {
+        return Promise.reject(e)
+    }
 }
 
 export const getSerie = (id) => {
-    const serie = series.find((serie) => serie.id === id);
+    try {
+        const stmt = db.prepare(`
+        SELECT * FROM series WHERE id = ?;`)
 
-    return serie
-        ? Promise.resolve(serie)
-        : Promise.reject(new Error('Invalid serie id'));
-}
-
-export const updateSerie = ({ id, name, last_episode_viewed, status, img }) => {
-    let serie = series.find((serie) => serie.id === id);
-
-    if (!serie) return Promise.reject(new Error('Serie not found'));
-
-    serie.name = name;
-    serie.last_episode_viewed = last_episode_viewed;
-    serie.status = status;
-    serie.img = img;
-
-    return Promise.resolve(serie)
-}
-
-export const createSerie = ({ name, last_episode_viewed, status, img }) => {
-    const newSerie = {
-        id: uuidv4(),
-        name,
-        last_episode_viewed,
-        status,
-        img,
+        return Promise.resolve(stmt.get(id))
+    } catch (e) {
+        return Promise.reject(e)
     }
+}
 
-    series.push(newSerie);
+export const updateSerie = ({ id, name, last_episode_viewed, finished, img }) => {
+    try {
+        const stmt = db.prepare(`
+        UPDATE series
+        SET name = ?,
+            last_episode_viewed = ?,
+            finished = ?,
+            img = ?
+        WHERE id = ?
+        RETURNING *;`)
 
-    return Promise.resolve(newSerie)
+        return Promise.resolve(stmt.get(name, last_episode_viewed, +finished, img, id))
+    } catch (e) {
+        return Promise.reject(e)
+    }
+}
+
+export const createSerie = ({ name, last_episode_viewed, finished, img }) => {
+    try {
+        const stmt = db.prepare(`
+        INSERT INTO series (name, last_episode_viewed, finished, img)
+        VALUES (?, ?, ?, ?) RETURNING *;`)
+
+        return Promise.resolve(stmt.get(name, last_episode_viewed, finished, img))
+    } catch (e) {
+        return Promise.reject(e)
+    }
 }
 
 export const removeSerie = (id) => {
-    const index = series.findIndex((serie) => serie.id === id);
+    try {
+        const deleteStmt = db.prepare(`
+        DELETE FROM series WHERE id = ?;`)
+        const getAllStmt = db.prepare(`SELECT * from series;`)
 
-    if (index === -1) return Promise.reject(new Error('Serie not found'));
+        const transaction = db.transaction(() => {
+            deleteStmt.run(id)
+            return getAllStmt.all()
+        })
 
-    series.splice(index, 1);
-
-    return Promise.resolve(series);
+        return Promise.resolve(transaction())
+    } catch (e) {
+        return Promise.reject(e)
+    }
 }
