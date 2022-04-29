@@ -1,9 +1,6 @@
 import { v4 as uuidv4 } from '@lukeed/uuid';
-
-export const user = {
-     username: 'toto',
-     password: 'toto',
-}
+import { db } from '$lib/db'
+import bcrypt from 'bcrypt'
 
 let sessions = [];
 
@@ -28,3 +25,18 @@ export const removeSession = (id) => {
     sessions = sessions.filter((session) => session.id !== id);
     return Promise.resolve(session);
 };
+
+export const checkCredentials = async (username, password) => {
+    try {
+        const stmt = db.prepare(`SELECT password FROM users WHERE username = ?;`)
+        const result = stmt.get(username)
+
+        if (await bcrypt.compare(password, result.password)) {
+            return true
+        } else {
+            return false
+        }
+    } catch(e) {
+        return false
+    }
+}
