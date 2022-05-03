@@ -1,6 +1,6 @@
-import Database from 'better-sqlite3'
+import Database from 'better-sqlite3';
 
-export const db = new Database('myapp.db')
+export const db = new Database('myapp.db');
 
 db.exec(`
 CREATE TABLE IF NOT EXISTS series (
@@ -20,4 +20,4 @@ CREATE TABLE IF NOT EXISTS users (
 INSERT INTO users (username, password)
 SELECT 'toto', '$2b$10$MxresAmokHmPbtO1SMXqj.wmUVqrcopVupTFU9D5PC4N1zsDOvjsS'
 WHERE NOT EXISTS (SELECT * FROM users);
-`)
+`);

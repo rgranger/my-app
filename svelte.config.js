@@ -13,7 +13,7 @@ const config = {
 		methodOverride: {
 			allowed: ['PATCH', 'DELETE']
 		}
-	},
+	}
 };
 
 export default config;

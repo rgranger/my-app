@@ -18,11 +18,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 };
 
 export function getSession(event) {
-    return event?.locals?.user
-     ? {
-             user: {
-				username: event.locals.user.username,
-             },
-       }
-     : {};
+	return event?.locals?.user
+		? {
+				user: {
+					username: event.locals.user.username
+				}
+		  }
+		: {};
 }

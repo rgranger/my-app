@@ -1,15 +1,15 @@
 import { parse } from 'cookie';
 
 export function makeAuthAPI(apiCallback: Function): Function {
-    return async function authAPI(ctx) {
-        const cookies = parse(ctx.request.headers.get('cookie') || '');
+	return async function authAPI(ctx) {
+		const cookies = parse(ctx.request.headers.get('cookie') || '');
 
-        if (!cookies.session_id) {
-            return {
-                status: 401,
-            }
-        }
+		if (!cookies.session_id) {
+			return {
+				status: 401
+			};
+		}
 
-        return apiCallback(ctx);
-    }
+		return apiCallback(ctx);
+	};
 }
