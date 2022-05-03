@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from '@lukeed/uuid';
 import { db } from '$lib/db';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 let sessions = [];
 
