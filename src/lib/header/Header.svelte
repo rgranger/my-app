@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import loginIcon from './login.svg';
 	import logoutIcon from './logout.svg';
+	import userIcon from './user.svg';
 
 	export let isLoggedIn;
 
@@ -34,8 +35,9 @@
 		</svg>
 	</nav>
 
-	<div class="corner">
+	<div class="corner flex flex-row">
 		{#if isLoggedIn}
+			<a sveltekit:prefetch href="/user"><img src={userIcon} alt="User" /></a>
 			<a href="#sign-out" on:click={handleLogout}><img src={logoutIcon} alt="Log Out" /></a>
 		{:else}
 			<a sveltekit:prefetch href="/sign-in"><img src={loginIcon} alt="Log In" /></a>
@@ -50,7 +52,7 @@
 	}
 
 	.corner {
-		width: 3em;
+		width: 6em;
 		height: 3em;
 	}
 
