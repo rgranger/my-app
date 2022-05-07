@@ -28,8 +28,8 @@ export const removeSession = (id: string) => {
 
 export const checkCredentials = async (username: string, password: string) => {
 	try {
-		const stmt = db.prepare(`SELECT password FROM users WHERE username = ?;`);
-		const result = stmt.get(username);
+		const result = (await db.query(`SELECT password FROM users WHERE username = $1;`, [username]))
+			.rows[0];
 
 		if (await bcrypt.compare(password, result.password)) {
 			return true;
@@ -51,16 +51,19 @@ export const updateCredentials = async ({
 	newPassword: string;
 }) => {
 	try {
-		const currentUser = db.prepare(`select * from users;`).get();
+		const currentUser = (await db.query(`select * from users;`)).rows[0];
 
 		if (await bcrypt.compare(currentPassword, currentUser.password)) {
-			const stmt = db.prepare(`
-            UPDATE users
-            SET username = ?,
-                password = ?
-            WHERE id = ${currentUser.id};`);
+			const updateQuery = {
+				text: `
+				UPDATE users
+				SET username = $1,
+					password = $2
+				WHERE id = ${currentUser.id};`,
+				values: [username, await bcrypt.hash(newPassword, 10)]
+			};
 
-			stmt.run(username, await bcrypt.hash(newPassword, 10));
+			await db.query(updateQuery);
 
 			return true;
 		} else {

@@ -1,10 +1,16 @@
-import Database from 'better-sqlite3';
+import { Pool } from 'pg';
 
-export const db = new Database('myapp.db');
+export const db = new Pool({
+	user: process.env.PGUSER,
+	host: process.env.PGHOST,
+	database: process.env.PGDATABASE,
+	password: process.env.PGPASSWORD,
+	port: process.env.PGPORT
+});
 
-db.exec(`
+db.query(`
 CREATE TABLE IF NOT EXISTS series (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     finished INTEGER NOT NULL,
     img TEXT NOT NULL,
@@ -12,7 +18,7 @@ CREATE TABLE IF NOT EXISTS series (
 );
 
 CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     username TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL
 );

@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import cookie from 'cookie';
 import type { Handle } from '@sveltejs/kit';
 import { getSession as getSessionFromApi } from './routes/api/_db';
