@@ -84,6 +84,7 @@
 		})
 			.then((res) => res.json())
 			.then((newSeries) => {
+				selectedSerie = null;
 				series.set(newSeries);
 			})
 			.catch((err) => console.error(err));
