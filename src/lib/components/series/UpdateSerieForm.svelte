@@ -12,7 +12,8 @@
 	const dispatch = createEventDispatcher();
 </script>
 
-<img class="aspect-video w-1/3 pt-2" src={img} alt={name} />
+<h1>Update Serie</h1>
+<img class="aspect-video pt-2" src={img} alt={name} />
 <Input id="name" class="pt-2" name="name" label="Name" type="text" bind:value={name} />
 <Input
 	class="pt-2"

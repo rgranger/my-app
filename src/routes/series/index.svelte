@@ -96,25 +96,25 @@
 </svelte:head>
 
 <div
-	class="min-h-0 flex flex-col flex-1"
+	class="min-h-0 flex flex-row flex-1"
 	use:outsideClick
 	on:outside-click={() => (selectedSerie = null)}
 >
-	<section class="flex flex-1 flex-wrap overflow-auto p-4">
+	<section class="flex flex-1 flex-wrap justify-center overflow-auto p-1">
 		{#each $series as serie}
 			<div
 				on:click={() => (selectedSerie = serie)}
-				class="p-1 text-center ring-blue-500"
+				class="p-4 text-center ring-blue-500"
 				class:ring-2={selectedSerie === serie}
 			>
-				<img class="w-56 aspect-video" src={serie.img} alt={serie.name} />
+				<img class="w-64 aspect-video" src={serie.img} alt={serie.name} />
 				<span>{serie.name}</span>
 				-
 				<span>{serie.last_episode_viewed}</span>
 			</div>
 		{/each}
 	</section>
-	<section class="flex flex-1 flex-col p-4 items-center -mt-2">
+	<section class="flex flex-initial w-96 flex-col flex-none items-center justify-center p-8">
 		{#if selectedSerie}
 			<UpdateSerieForm
 				name={selectedSerie.name}
