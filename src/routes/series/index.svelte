@@ -104,8 +104,10 @@
 		{#each $series as serie}
 			<div
 				on:click={() => (selectedSerie = serie)}
-				class="p-4 text-center ring-blue-500"
-				class:ring-2={selectedSerie === serie}
+				class="p-4 text-center border-2"
+				class:border-blue-500={selectedSerie === serie}
+				class:border-transparent={selectedSerie !== serie}
+				class:bg-gray-400={serie.finished}
 			>
 				<img class="w-64 aspect-video" src={serie.img} alt={serie.name} />
 				<span>{serie.name}</span>
