@@ -1,6 +1,6 @@
 import { db } from '$lib/db';
 
-export const getSeries = async () => (await db.query('SELECT * FROM series;')).rows;
+export const getSeries = async () => (await db.query('SELECT * FROM series ORDER BY finished;')).rows;
 export const getSerie = async (id) =>
 	(await db.query('SELECT * FROM series WHERE id = $1;', [id])).rows[0];
 
@@ -32,5 +32,5 @@ RETURNING *;`,
 
 export const removeSerie = async (id) => {
 	await db.query('DELETE FROM series WHERE id = $1;', [id]);
-	return (await db.query('SELECT * FROM series')).rows;
+	return (await db.query('SELECT * FROM series ORDER BY finished;')).rows;
 };
