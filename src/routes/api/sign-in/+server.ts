@@ -1,4 +1,4 @@
-import { createSession, checkCredentials } from '$lib/server/session';
+import { checkCredentials } from '$lib/server/auth';
 import { serialize } from 'cookie';
 import { error } from '@sveltejs/kit';
 
@@ -11,14 +11,12 @@ export async function POST({ request }) {
 	if (!areCredentialsValid) {
 		throw error(401, 'Invalid credentials')
 	} else {
-		const { id } = await createSession(username);
-
 		return new Response(
 			JSON.stringify({ message: 'Logged in' }),
 			{ 
 				status: 200,
 				headers: {
-					'Set-Cookie': serialize('session_id', id, {
+					'Set-Cookie': serialize('user', username, {
 						path: '/',
 						httpOnly: true,
 						sameSite: 'strict',

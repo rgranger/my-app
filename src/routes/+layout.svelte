@@ -1,11 +1,10 @@
 <script lang="ts">
 	import Header from '$lib/components/header/Header.svelte';
 	import '../app.css';
-
-	export let user;
+	import { page } from '$app/stores';
 </script>
 
-<Header isLoggedIn={!!user} />
+<Header isLoggedIn={!!$page.data.user} />
 <main>
 	<slot />
 </main>

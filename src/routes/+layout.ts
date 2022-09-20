@@ -1,8 +1,6 @@
 /** @type {import('./$types').LayoutLoad} */
-export async function load(/*{ session }*/) {
+export async function load({ data }) {
 	return {
-		props: {
-			user: null // session.user
-		}
+		user: data.user
 	};
 }
