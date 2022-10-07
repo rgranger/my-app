@@ -14,5 +14,14 @@ export async function handle({ event, resolve })  {
         }
     }
 
+    if (url.pathname.startsWith('/api/admin')) {
+        const cookies = cookie.parse(event.request.headers.get('cookie') || '')
+
+        if (!await getUser(cookies.user)) {
+
+            return new Response(null, { status: 401 })
+        }
+    }
+
     return resolve(event)
 }
