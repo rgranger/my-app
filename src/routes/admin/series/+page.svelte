@@ -6,7 +6,7 @@
 	import CreateSerieForm from '$lib/components/series/CreateSerieForm.svelte';
 
 	onMount(async () => {
-		fetch('/api/series')
+		fetch('/api/admin/series')
 			.then((res) => res.json())
 			.then((data) => series.set(data))
 			.catch((err) => console.error(err));
@@ -15,7 +15,7 @@
 	let selectedSerie = null;
 
 	function handleUpdateSerie({ detail: { name, lastEpisodeViewed, img, finished } }) {
-		fetch(`/api/series/${selectedSerie.id}`, {
+		fetch(`/api/admin/series/${selectedSerie.id}`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
@@ -43,7 +43,7 @@
 	}
 
 	function handleCreateSerie({ detail: { name, lastEpisodeViewed, img } }) {
-		fetch('/api/series', {
+		fetch('/api/admin/series', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -62,7 +62,7 @@
 	}
 
 	function handleDeleteSerie() {
-		fetch(`/api/series/${selectedSerie.id}`, {
+		fetch(`/api/admin/series/${selectedSerie.id}`, {
 			method: 'DELETE'
 		})
 			.then((res) => res.json())
