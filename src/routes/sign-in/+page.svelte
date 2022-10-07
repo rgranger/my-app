@@ -21,7 +21,7 @@
 			return;
 		}
 
-		window.location.href = '/series';
+		window.location.href = '/admin/series';
 	}
 </script>
 

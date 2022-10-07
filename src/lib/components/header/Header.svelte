@@ -8,7 +8,7 @@
 
 	const handleLogout = async () => {
 		await fetch('/api/sign-out', {
-			method: 'GET'
+			method: 'DELETE'
 		});
 
 		window.location.href = '/sign-in';
@@ -25,8 +25,8 @@
 		<ul>
 			<li class:active={$page.url.pathname === '/'}><a href="/">Home</a></li>
 			{#if isLoggedIn}
-				<li class:active={$page.url.pathname === '/series'}>
-					<a href="/series">Series</a>
+				<li class:active={$page.url.pathname === '/admin/series'}>
+					<a href="/admin/series">Series</a>
 				</li>
 			{/if}
 		</ul>
@@ -37,7 +37,7 @@
 
 	<div class="corner flex flex-row">
 		{#if isLoggedIn}
-			<a href="/user"><img src={userIcon} alt="User" /></a>
+			<a href="/admin/user"><img src={userIcon} alt="User" /></a>
 			<a href="#sign-out" on:click={handleLogout}><img src={logoutIcon} alt="Log Out" /></a>
 		{:else}
 			<a href="/sign-in"><img src={loginIcon} alt="Log In" /></a>
