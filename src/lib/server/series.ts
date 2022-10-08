@@ -1,4 +1,4 @@
-import { db } from '$lib/db';
+import { db } from '$lib/server/db';
 
 export const getSeries = async () => (await db.query('SELECT * FROM series ORDER BY finished;')).rows;
 export const getSerie = async (id) =>

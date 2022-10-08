@@ -2,7 +2,7 @@
 	import Input from '$lib/components/Input.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import { createEventDispatcher } from 'svelte';
-	import Checkbox from '../Checkbox.svelte';
+	import Checkbox from '$lib/components/Checkbox.svelte';
 
 	export let name;
 	export let lastEpisodeViewed;

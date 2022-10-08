@@ -1,20 +1,3 @@
-<script context="module">
-	export async function load({ session }) {
-		if (!session?.user) {
-			return {
-				status: 302,
-				redirect: '/sign-in'
-			};
-		} else {
-			return {
-				props: {
-					user: session.user
-				}
-			};
-		}
-	}
-</script>
-
 <script>
 	import ChangeCredentialsForm from '$lib/components/ChangeCredentialsForm.svelte';
 
@@ -24,7 +7,7 @@
 	};
 
 	async function handleSubmit({ detail: { username, currentPassword, newPassword } }) {
-		const response = await fetch('/api/credentials', {
+		const response = await fetch('/api/admin/credentials', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

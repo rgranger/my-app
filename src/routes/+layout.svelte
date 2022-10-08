@@ -1,21 +1,10 @@
-<script context="module">
-	export async function load({ session }) {
-		return {
-			props: {
-				user: session.user
-			}
-		};
-	}
-</script>
-
 <script lang="ts">
-	import Header from '$lib/header/Header.svelte';
+	import Header from '$lib/components/header/Header.svelte';
 	import '../app.css';
-
-	export let user;
+	import { page } from '$app/stores';
 </script>
 
-<Header isLoggedIn={!!user} />
+<Header isLoggedIn={!!$page.data.user} />
 <main>
 	<slot />
 </main>
