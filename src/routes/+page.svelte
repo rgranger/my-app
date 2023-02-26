@@ -6,16 +6,68 @@
 	<title>Home</title>
 </svelte:head>
 
-<section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
+<!-- voir pour idée https://templateflip.com/demo/templates/right-resume/ -->
+
+<div>
+	<section>
+		<h1>Robin Granger</h1>
+		<p>Senior Software Engineer</p>
+		<button>Download CV</button>
+		<button>Hire Me</button>
+	</section>
+	<section>
+		<div>
+			<h1>About Me</h1>
+			<p>bla bla bla</p>
 		</div>
-	</h1>
-</section>
+		<div>
+			<ul>
+				<li>Age 31</li>
+				<li>Email robin.granger.pro@gmail.com</li>
+			</ul>
+		</div>
+	</section>
+	<section>
+		<h1>Professional Skills</h1>
+		Node React Redux TypeScript Rust Go Sveltekit
+	</section>
+	<section>
+		<h1>Work Experience</h1>
+		<div>
+			<h2>Lead Software Engineer at Analog Way</h2>
+			<p>Octobre 2018 - Maintenant</p>
+			<p>bla bla</p>
+		</div>
+		<div>
+			<h2>Software Engineer at Analog Way</h2>
+			<p>Octobre 2015 - Octobre 2018</p>
+			<p>bla bla</p>
+		</div>
+		<div>
+			<h2>Stage de fin d'étude at Analog Way</h2>
+			<p>Février 2015 - Août 2015</p>
+			<p>bla bla</p>
+		</div>
+	</section>
+	<section>
+		<h1>Education</h1>
+		<div>
+			<h2>Diplome d'ingénieur at Télécom Saint-Etienne</h2>
+			<p>x - x</p>
+			<p>bla bla</p>
+		</div>
+		<div>
+			<h2>x</h2>
+			<p>x - x</p>
+			<p>bla bla</p>
+		</div>
+		<div>
+			<h2>x</h2>
+			<p>x - x</p>
+			<p>bla bla</p>
+		</div>
+	</section>
+</div>
 
 <style>
 	section {
@@ -24,24 +76,5 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
 	}
 </style>
