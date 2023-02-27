@@ -8,14 +8,17 @@
 
 <!-- voir pour idée https://templateflip.com/demo/templates/right-resume/ -->
 
-<div>
-	<section>
-		<h1>Robin Granger</h1>
-		<p>Senior Software Engineer</p>
-		<button>Download CV</button>
-		<button>Hire Me</button>
+<div class="relative mx-32 my-16 shadow-lg rounded-xl">
+	<img class="absolute left-8 top-14 border-8 grayscale" src="https://demo.templateflip.com/right-resume/images/avatar.jpg" alt="Robin Granger" width="200" height="200" />
+	<section class="rounded-t-xl bg-sky-600">
+		<div class="ml-72 w-fit pb-8 pt-14">
+			<h1 class="text-white font-bold">Robin Granger</h1>
+			<p class="text-white mb-4 ">Senior Software Engineer</p>
+			<button class="bg-slate-200 hover:bg-slate-300 py-2 px-4 rounded-full">Download CV</button>
+			<button class="bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-full ml-1">Hire Me</button>
+		</div>
 	</section>
-	<section>
+	<section class="bg-white p-8 border-b-2 border-slate-100">
 		<div>
 			<h1>About Me</h1>
 			<p>bla bla bla</p>
@@ -27,11 +30,11 @@
 			</ul>
 		</div>
 	</section>
-	<section>
+	<section class="bg-white p-8 border-b-2 border-slate-100">
 		<h1>Professional Skills</h1>
 		Node React Redux TypeScript Rust Go Sveltekit
 	</section>
-	<section>
+	<section class="bg-white p-8 border-b-2 border-slate-100">
 		<h1>Work Experience</h1>
 		<div>
 			<h2>Lead Software Engineer at Analog Way</h2>
@@ -49,7 +52,7 @@
 			<p>bla bla</p>
 		</div>
 	</section>
-	<section>
+	<section class="bg-white p-8 rounded-b-xl">
 		<h1>Education</h1>
 		<div>
 			<h2>Diplome d'ingénieur at Télécom Saint-Etienne</h2>
@@ -70,11 +73,4 @@
 </div>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
 </style>
