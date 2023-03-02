@@ -18,16 +18,21 @@
 			<button class="bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-full ml-1">Hire Me</button>
 		</div>
 	</section>
-	<section class="bg-white p-8 border-b-2 border-slate-100">
-		<div>
+	<section class="bg-white p-8 pt-12 border-b-2 border-slate-100 flex flex-row gap-8">
+		<div class="flex-1">
 			<h1>About Me</h1>
-			<p>bla bla bla</p>
+			<p class="">
+				Bonjour ! Je m'appelle Robin Granger et je suis un passioné de développement logiciel.
+				J'affectionne particulièrement l'IA et les dernières technologies, telles que Deno, Sveltekit et Rust.
+			</p>
 		</div>
-		<div>
-			<ul>
-				<li>Age 31</li>
-				<li>Email robin.granger.pro@gmail.com</li>
-			</ul>
+		<div class="flex-1 grid gap-6 grid-rows-3 grid-flow-col p-2 h-28">
+				<div>Age</div>
+				<div>Email</div>
+				<div>Adresse</div>
+				<div>31</div>
+				<div>robin.granger.pro@gmail.com</div>
+				<div>Antony</div>
 		</div>
 	</section>
 	<section class="bg-white p-8 border-b-2 border-slate-100">
@@ -73,4 +78,10 @@
 </div>
 
 <style>
+	h1 {
+		font-size: x-large;
+		font-weight: bold;
+		text-align: left;
+		margin-bottom: 1rem;
+	}
 </style>
