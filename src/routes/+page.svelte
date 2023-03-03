@@ -46,7 +46,56 @@
 	</section>
 	<section class="bg-white p-8 border-b-2 border-slate-100">
 		<h1>Professional Skills</h1>
-		Node React Redux TypeScript Rust Go Sveltekit
+		<div class="flex flex-row gap-6">
+			<div class="flex flex-1 flex-col gap-6">
+				<div>
+					<div class="pb-2">JavaScript</div>
+					<div class="h-4 bg-slate-200 rounded">
+						<div class="h-full w-5/6 bg-sky-600 rounded" />
+					</div>
+				</div>
+				<div>
+					<div class="pb-2">TypeScript</div>
+					<div class="h-4 bg-slate-200" />
+				</div>
+				<div>
+					<div class="pb-2">Rust</div>
+					<div class="h-4 bg-slate-200" />
+				</div>
+				<div>
+					<div class="pb-2">Go</div>
+					<div class="h-4 bg-slate-200" />
+				</div>
+				<div>
+					<div class="pb-2">C#</div>
+					<div class="h-4 bg-slate-200" />
+				</div>
+			</div>
+			<div class="flex flex-1 flex-col gap-6">
+				<div>
+					<div class="pb-2">Node</div>
+					<div class="h-4 bg-slate-200 rounded">
+						<div class="h-full w-5/6 bg-teal-500 rounded" />
+					</div>
+				</div>
+				<div>
+					<div class="pb-2">Deno</div>
+					<div class="h-4 bg-slate-200" />
+				</div>
+				<div>
+					<div class="pb-2">React</div>
+					<div class="h-4 bg-slate-200" />
+				</div>
+				<div>
+					<div class="pb-2">Redux</div>
+					<div class="h-4 bg-slate-200" />
+				</div>
+				<div>
+					<div class="pb-2">Sveltekit</div>
+					<div class="h-4 bg-slate-200" />
+				</div>
+			</div>
+		</div>
 	</section>
 	<section class="bg-white p-8 border-b-2 border-slate-100">
 		<h1>Work Experience</h1>
