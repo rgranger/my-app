@@ -1,6 +1,10 @@
 <script>
-	import ProgressBar from "./ProgressBar.svelte";
+	import ProgressBar from "../ProgressBar.svelte";
+	import Timeline from "./Timeline.svelte";
+	import TimelineCard from "./TimelineCard.svelte";
 </script>
+
+<!-- voir pour idée https://templateflip.com/demo/templates/right-resume/ -->
 
 <div class="relative mx-32 my-16 shadow-lg rounded-xl">
 	<img
@@ -89,39 +93,55 @@
 	</section>
 	<section class="bg-white p-8 border-b-2 border-slate-100">
 		<h1>Work Experience</h1>
-		<div>
-			<h2>Lead Software Engineer at Analog Way</h2>
-			<p>Octobre 2018 - Maintenant</p>
-			<p>bla bla</p>
-		</div>
-		<div>
-			<h2>Software Engineer at Analog Way</h2>
-			<p>Octobre 2015 - Octobre 2018</p>
-			<p>bla bla</p>
-		</div>
-		<div>
-			<h2>Stage de fin d'étude at Analog Way</h2>
-			<p>Février 2015 - Août 2015</p>
-			<p>bla bla</p>
-		</div>
+		<Timeline>
+			<TimelineCard
+				title='Lead Software Engineer'
+				company='Analog Way'
+				from='Octobre 2018'
+				to='Maintenant'
+				description='bla bla bla bla'
+			/>
+			<TimelineCard
+				title='Software Engineer'
+				company='Analog Way'
+				from='Octobre 2015'
+				to='Octobre 2018'
+				description='bla bla bla bla'
+			/>
+			<TimelineCard
+				title="Stage de fin d'étude"
+				company='Analog Way'
+				from='Février 2015'
+				to='Octobre 2018'
+				description='bla bla bla bla'
+			/>
+		</Timeline>
 	</section>
 	<section class="bg-white p-8 rounded-b-xl">
 		<h1>Education</h1>
-		<div>
-			<h2>Diplome d'ingénieur at Télécom Saint-Etienne</h2>
-			<p>x - x</p>
-			<p>bla bla</p>
-		</div>
-		<div>
-			<h2>x</h2>
-			<p>x - x</p>
-			<p>bla bla</p>
-		</div>
-		<div>
-			<h2>x</h2>
-			<p>x - x</p>
-			<p>bla bla</p>
-		</div>
+		<Timeline>
+			<TimelineCard
+				title="Diplôme d'ingénieur"
+				company='Télécom Saint-Etienne'
+				from='x'
+				to='x'
+				description='bla bla bla bla'
+			/>
+			<TimelineCard
+				title='x'
+				company='x'
+				from='x'
+				to='x'
+				description='x'
+			/>
+			<TimelineCard
+				title="x"
+				company='x'
+				from='x'
+				to='x'
+				description='bla bla bla bla'
+			/>
+		</Timeline>
 	</section>
 </div>
 
