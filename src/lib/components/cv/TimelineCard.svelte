@@ -3,7 +3,6 @@
     export let company
     export let from
     export let to
-    export let description
 </script>
 
 <div class="border-[1px] border-slate-200 border-l-2 border-l-sky-600 p-8 rounded flex flex-col gap-2 relative shadow-md">
@@ -14,5 +13,5 @@
         <span class="font-bold text-slate-500">at {company}</span>
     </h2>
     <p class="text-sm">{from} - {to}</p>
-    <p>{description}</p>
+    <p><slot></slot></p>
 </div>
