@@ -18,7 +18,11 @@
 		<div class="ml-72 w-fit pb-8 pt-14">
 			<div class="text-white font-bold text-4xl mb-4">Robin Granger</div>
 			<p class="text-white mb-4 ">Lead Software Engineer</p>
-			<button class="bg-slate-200 hover:bg-slate-300 py-2 px-4 rounded-full">Download CV</button>
+			<a class="text-slate-700" download href="/RobinGrangerResume.pdf">
+				<button class="bg-slate-200 hover:bg-slate-300 py-2 px-4 rounded-full">
+					Download CV
+				</button>
+			</a>
 		</div>
 	</section>
 	<section class="bg-white p-8 pt-12 border-b-2 border-slate-100 flex flex-row gap-8">
